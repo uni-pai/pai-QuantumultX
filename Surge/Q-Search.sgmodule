@@ -116,19 +116,19 @@ DeepLtoJapanese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlj(\
 
 # > 购物
 # zdm: 什么值得买
-^https:\/\/duckduckgo.com\/\?q=zdm(\+|%20)([^&]+).+ https://search.m.smzdm.com/?v=b&s=$2 302
+^https:\/\/duckduckgo.com\/\?q=zdm(\+|%20)([^&]+).+ https://search.smzdm.com/?v=b&s=$2 302
 
 # amz: 亚马逊
 ^https:\/\/duckduckgo.com\/\?q=amz(\+|%20)([^&]+).+ https://www.amazon.cn/gp/aw/s/?k=$2 302
 
 # jd : 京东
-^https:\/\/duckduckgo.com\/\?q=jd(\+|%20)([^&]+).+ https://so.m.jd.com/ware/search.action?keyword=$2 302
+^https:\/\/duckduckgo.com\/\?q=jd(\+|%20)([^&]+).+ https://so.jd.com/ware/search.action?keyword=$2 302
 
 # tb: 淘宝
-^https:\/\/duckduckgo.com\/\?q=tb(\+|%20)([^&]+).+ https://s.m.taobao.com/h5?q=$2 302
+^https:\/\/duckduckgo.com\/\?q=tb(\+|%20)([^&]+).+ https://s.taobao.com/h5?q=$2 302
 
 # tm: 天猫
-^https:\/\/duckduckgo.com\/\?q=tm(\+|%20)([^&]+).+ https://s.m.tmall.com/m/search.htm?q=$2 302
+^https:\/\/duckduckgo.com\/\?q=tm(\+|%20)([^&]+).+ https://s.tmall.com/m/search.htm?q=$2 302
 
 # 视频资源
 
