@@ -1,9 +1,8 @@
 #!name=Q-Search
-#!desc=Safari Search Add-ons by Neurogram
+#!desc=Safari Search Add-ons, modified from 🐩️哥 (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
+
 # - Safari 内输入 命令 + 空格 + 关键词 快速指定搜索引擎搜索
-
 #  注：先进入设置更改 Safari 默认搜索为 DuckDuckGO
-
 # 可自行修改指令或者添加搜索引擎
 
 # wiki: Wikipedia
@@ -43,18 +42,29 @@
 # mg: Magi
 # bi: 必应
 # bd：百度搜索
-# ddg：DuckDuckGo 搜索
-# 无指令则转 Google 搜索
+# go：Google 搜索
+# 无指令则 DuckDuckGo 搜索
+
+[Script]
+# dlc DeepL 译至中
+DeepLtoChinese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlc(\+|%20)([^&]+).+,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js
+
+# dle DeepL 译至英
+DeepLtoEnglish = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dle(\+|%20)([^&]+).+,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js
+
+# dlj DeepL 译至日
+DeepLtoJapanese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlj(\+|%20)([^&]+).+,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js
+
 
 [URL Rewrite]
-# wiki  (Wikipedia)
+# wiki  Wikipedia
 ^https:\/\/duckduckgo.com\/\?q=wiki(\+|%20)([^&]+).+ https://wikipedia.org/wiki/$2
 
-# wk  (Wikipedia 中文)
+# wk  Wikipedia 中文
 ^https:\/\/duckduckgo.com\/\?q=wk(\+|%20)([^&]+).+ https://zh.wikipedia.org/wiki/$2
 
 
-#gm   (Google图片)
+#gm   Google图片
 ^https:\/\/duckduckgo.com\/\?q=gm(\+|%20)([^&]+).+ https://www.google.com/search?&tbm=isch&q=$2 302
 
 # gh   GitHub
@@ -81,15 +91,6 @@
 
 # trj  Google 译至日
 ^https:\/\/duckduckgo.com\/\?q=trj(\+|%20)([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=ja&text=$2 302
-
-# dlc DeepL 译至中
-DeepLtoChinese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlc(\+|%20)([^&]+).+,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js
-
-# dle DeepL 译至英
-DeepLtoEnglish = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dle(\+|%20)([^&]+).+,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js
-
-# dlj DeepL 译至日
-DeepLtoJapanese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlj(\+|%20)([^&]+).+,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js
 
 # 社区
 # db：豆瓣
@@ -145,7 +146,7 @@ DeepLtoJapanese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlj(\
 
 
 # 默认搜索
-# mg  (Magi)
+# mg  Magi
 ^https:\/\/duckduckgo.com\/\?q=mg(\+|%20)([^&]+).+ https://magi.com/search?q=$2 302
 
 # bi: 必应
@@ -154,11 +155,11 @@ DeepLtoJapanese = type=http-request,pattern=^https:\/\/duckduckgo.com\/\?q=dlj(\
 # bd: 百度
 ^https:\/\/duckduckgo.com\/\?q=bd(\+|%20)([^&]+).+ https://www.baidu.com/s?wd=$2 302
 
-# ddg: DuckDuckGo 
-^https:\/\/duckduckgo.com\/\?q=ddg(\+|%20)([^&]+).+ https://duckduckgo.com/?ia=about&q=$2 302
+# go: Google
+^https:\/\/duckduckgo.com\/\?q=go(\+|%20)([^&]+).+ https://www.google.com/search?q=$2 302
 
-# 无指令: 谷歌
-^https:\/\/duckduckgo.com\/\?q=([^&]+).+ https://www.google.com/search?q=$2 302
+# 无指令: DuckDuckGo 
+^https:\/\/duckduckgo.com\/\?q=([^&]+).+ https://duckduckgo.com/?ia=about&q=$2 302
 
 
 [MITM]
